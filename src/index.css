@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-accent: "Outfit", sans-serif;
+
+  --color-zinc-50: #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-200: #e4e4e7;
+  --color-zinc-300: #d4d4d8;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #71717a;
+  --color-zinc-600: #52525b;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-800: #27272a;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+  
+  --color-primary: #2563eb;
+  --color-primary-light: #60a5fa;
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-50 text-zinc-950 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-zinc-950;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white border border-zinc-200 rounded-none shadow-sm;
+  }
+
+  .nav-blur {
+    @apply bg-white/90 backdrop-blur-md border-b border-zinc-200;
+  }
+
+  .gradient-text {
+    @apply text-primary;
+  }
+
+  .premium-button {
+    @apply px-8 py-4 rounded-none font-bold transition-all duration-500 flex items-center justify-center gap-2 uppercase tracking-widest text-xs;
+  }
+
+  .premium-button-primary {
+    @apply bg-zinc-950 text-white hover:bg-primary shadow-sm;
+  }
+
+  .premium-button-outline {
+    @apply border border-zinc-950 text-zinc-950 hover:bg-zinc-950 hover:text-white;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-200 hover:bg-zinc-300 transition-colors;
+}
