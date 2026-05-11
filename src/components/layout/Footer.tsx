@@ -28,8 +28,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <img src="/logo.png" alt="Axiora Labs" className="h-12 w-auto object-contain brightness-0 invert" />
+              <img src="/logo1.png" alt="Axiora Labs" className="h-12 w-auto object-contain brightness-0 invert" />
             </Link>
+            <span className="text-lg font-black uppercase tracking-[0.25em] text-white">
+    AXIORA LABS
+  </span>
             <p className="text-zinc-500 leading-relaxed max-w-xs text-[11px] uppercase font-medium tracking-tight">
               Building brands through technology. We enable digital transformation for the next generation of startups and businesses.
             </p>
