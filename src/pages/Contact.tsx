@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { fadeIn } from '../animations/variants';
 import { Mail, Phone, MapPin, Send, MessageCircle, Calendar } from 'lucide-react';
 import { useState, ChangeEvent, FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,10 +16,39 @@ export default function Contact() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
+ const handleSubmit = async (e: FormEvent) => {
+  e.preventDefault();
+
+  try {
+    await emailjs.send(
+      'service_0hdh2le',
+      'template_2r7mrjk',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        business_type: formData.businessType,
+        service_needed: formData.serviceNeeded,
+        message: formData.message,
+      },
+      'XQkIyEORpBb3QI9T0'
+    );
+
     setIsSubmitted(true);
-  };
+
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      businessType: '',
+      serviceNeeded: '',
+      message: '',
+    });
+
+  } catch (error) {
+    console.log('EMAIL ERROR:', error);
+  }
+};
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -128,10 +158,11 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold text-black uppercase tracking-[0.2em]">Full Name</label>
                   <input 
-                    type="text" 
-                    name="name"
-                    required
-                    onChange={handleChange}
+  type="text" 
+  name="name"
+  value={formData.name}
+  required
+  onChange={handleChange}
                     className="w-full bg-white border border-black/10 px-4 py-4 focus:outline-none focus:border-black transition-colors text-black uppercase tracking-widest text-xs font-bold"
                     placeholder="Enter Name"
                   />
@@ -163,8 +194,9 @@ export default function Contact() {
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold text-black uppercase tracking-[0.2em]">Business Type</label>
                   <select 
-                    name="businessType"
-                    onChange={handleChange}
+  name="businessType"
+  value={formData.businessType}
+  onChange={handleChange}
                     className="w-full bg-white border border-black/10 px-4 py-4 focus:outline-none focus:border-black transition-colors text-black uppercase tracking-widest text-xs font-bold appearance-none"
                   >
                     <option value="">Select Type</option>
@@ -192,17 +224,18 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-[10px] font-bold text-black uppercase tracking-[0.2em]">Project Details</label>
                 <textarea 
-                  name="message"
-                  required
-                  rows={4}
-                  onChange={handleChange}
+  name="message"
+  value={formData.message}
+  required
+  rows={4}
+  onChange={handleChange}
                   className="w-full bg-white border border-black/10 px-4 py-4 focus:outline-none focus:border-black transition-colors text-black uppercase tracking-widest text-xs font-bold"
                   placeholder="Goals..."
                 />
               </div>
 
               <button type="submit" className="premium-button bg-black text-white hover:bg-zinc-800 w-full gap-3 text-sm py-6">
-                Send Inquery <Send className="w-4 h-4" />
+                Send Inquiry <Send className="w-4 h-4" />
               </button>
             </form>
             )}
