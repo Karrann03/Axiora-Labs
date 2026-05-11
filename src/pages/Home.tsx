@@ -22,7 +22,7 @@ export default function Home() {
             className="space-y-10"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-950 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
-              <span>EST. 2024 — WE ARE STARTING NOW</span>
+              <span>EST. 2026 — WE ARE STARTING NOW</span>
             </div>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.85] tracking-tighter uppercase">
               WE BUILD <br /> <span className="text-primary italic">BRANDS</span> <br /> THROUGH <br /> TECH
