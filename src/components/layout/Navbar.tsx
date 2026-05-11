@@ -36,8 +36,16 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="Axiora Labs" className="h-10 w-auto object-contain" />
-        </Link>
+  <img 
+    src="/logo1.PNG" 
+    alt="Axiora Labs" 
+    className="h-10 w-auto object-contain" 
+  />
+
+  <span className="text-lg font-black uppercase tracking-[0.25em] text-black">
+    AXIORA LABS
+  </span>
+</Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8">
