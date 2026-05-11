@@ -37,7 +37,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
   <img 
-  src="/logo1.png" 
+  src="/logo1.PNG" 
   alt="Axiora Labs" 
   className="h-10 w-auto object-contain bg-transparent" 
 />
